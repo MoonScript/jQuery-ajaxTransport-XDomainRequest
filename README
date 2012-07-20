@@ -1,9 +1,13 @@
-Implements automatic CORS support using the XDomainRequest object for IE8 and IE9 when using jQuery 1.5+ ajax function.
+jQuery ajaxTransport XDomainRequest
+===================================
+
+Implements automatic Cross Origin Resource Sharing support using the XDomainRequest object for IE8 and IE9 when using jQuery 1.5+ ajax function.
 
 CORS requires the Access-Control-Allow-Origin header to be present in the AJAX response.
 
-Working example here:
-http://jsfiddle.net/MoonScript/Q7bVG/show/
+Working example [http://jsfiddle.net/MoonScript/Q7bVG/](here).
 
-Note:
-XDomainRequest must be: asynchronous, GET or POST methods, HTTP or HTTPS protocol, and same scheme as calling page
+Internet Explorer XDomainRequest
+--------------------------------
+
+XDomainRequest must be: asynchronous, GET or POST method, HTTP or HTTPS protocol, and same scheme as calling page
