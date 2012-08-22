@@ -39,7 +39,7 @@ if (!jQuery.support.cors && window.XDomainRequest) {
 						try {
 							if (userType === 'json') {
 								try {
-									responses.json = JSON.parse(xdr.responseText);
+									responses.json = jQuery.parseJSON(xdr.responseText);
 								} catch(e) {
 									status.code = 500;
 									status.message = 'parseerror';
