@@ -5,6 +5,7 @@ if (!jQuery.support.cors && window.XDomainRequest) {
   var httpRegEx = /^https?:\/\//i;
   var getOrPostRegEx = /^get|post$/i;
   var sameSchemeRegEx = new RegExp('^'+location.protocol, 'i');
+  var jsonRegEx = /\/json/i;
   var xmlRegEx = /\/xml/i;
   
   // ajaxTransport exists in jQuery 1.5+
@@ -37,7 +38,7 @@ if (!jQuery.support.cors && window.XDomainRequest) {
             } else
             */
             try {
-              if (userType === 'json') {
+              if ((userType === 'json') || ((userType !== 'text') && jsonRegEx.test(xdr.contentType))) {
                 try {
                   responses.json = $.parseJSON(xdr.responseText);
                 } catch(e) {
