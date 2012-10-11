@@ -72,8 +72,7 @@ if (!jQuery.support.cors && window.XDomainRequest) {
 						});
 					};
 					xdr.open(options.type, options.url);
-					//xdr.send(userOptions.data);
-					xdr.send();
+					xdr.send(userOptions.data);
 				},
 				abort: function(){
 					if (xdr) {
