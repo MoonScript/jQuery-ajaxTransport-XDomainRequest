@@ -67,8 +67,11 @@ if (!jQuery.support.cors && window.XDomainRequest) {
               complete(status.code, status.message, responses, allResponseHeaders);
             }
           };
+          
+          //set an empty handler for 'onprogress' so requests don't get aborted
           xdr.onprogress = function () {
           };
+
           xdr.onerror = function(){
             complete(500, 'error', {
               text: xdr.responseText
