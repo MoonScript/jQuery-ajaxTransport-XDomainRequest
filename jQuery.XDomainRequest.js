@@ -20,6 +20,7 @@ if (!jQuery.support.cors && window.XDomainRequest) {
           if (/^\d+$/.test(userOptions.timeout)) {
             xdr.timeout = userOptions.timeout;
           }
+          xdr.onprogress = function(){};
           xdr.ontimeout = function(){
             complete(500, 'timeout');
           };
