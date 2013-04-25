@@ -12,3 +12,16 @@ In order to use XDomainRequest in Internet Explorer, the request must be:
 
 Working example here:
 http://jsfiddle.net/MoonScript/Q7bVG/
+
+## Instructions
+
+With at least jQuery version 1.5, just include this `jQuery.XDomainRequest.js` script into your page, then make your AJAX call like you normally would:
+
+```JavaScript
+$.ajax({
+  url: 'http://jsonmoon.jsapp.us/',
+  dataType: 'json'
+}).done(function(data){
+  console.log(data.name.first);
+});
+```
