@@ -11,7 +11,7 @@ if (!jQuery.support.cors && window.XDomainRequest) {
   // ajaxTransport exists in jQuery 1.5+
   jQuery.ajaxTransport('text html xml json', function(options, userOptions, jqXHR){
     // XDomainRequests must be: asynchronous, GET or POST methods, HTTP or HTTPS protocol, and same scheme as calling page
-    if (options.crossDomain && options.async && getOrPostRegEx.test(options.type) && httpRegEx.test(userOptions.url) && sameSchemeRegEx.test(userOptions.url)) {
+    if (options.crossDomain && options.async && getOrPostRegEx.test(options.type) && httpRegEx.test(options.url) && sameSchemeRegEx.test(options.url)) {
       var xdr = null;
       var userType = (userOptions.dataType||'').toLowerCase();
       return {
@@ -67,6 +67,11 @@ if (!jQuery.support.cors && window.XDomainRequest) {
               complete(status.code, status.message, responses, allResponseHeaders);
             }
           };
+          
+          //set an empty handler for 'onprogress' so requests don't get aborted
+          xdr.onprogress = function () {
+          };
+
           xdr.onerror = function(){
             complete(500, 'error', {
               text: xdr.responseText
