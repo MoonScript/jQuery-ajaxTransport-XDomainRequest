@@ -74,7 +74,13 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
               text: xdr.responseText
             });
           };
-          var postData = (userOptions.data && $.param(userOptions.data)) || '';
+          var postData = (
+              userOptions.data && (
+                  typeof userOptions.data === "string"
+                      ? userOptions.data
+                      : $.param(userOptions.data))
+                  )
+              || '';
           xdr.open(options.type, options.url);
           xdr.send(postData);
         },
