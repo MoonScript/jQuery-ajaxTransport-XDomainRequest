@@ -1,7 +1,7 @@
 // jQuery.XDomainRequest.js
 // Author: Jason Moon - @JSONMOON
 // IE8+
-if (!jQuery.support.cors && window.XDomainRequest) {
+if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
   var httpRegEx = /^https?:\/\//i;
   var getOrPostRegEx = /^get|post$/i;
   var sameSchemeRegEx = new RegExp('^'+location.protocol, 'i');
@@ -67,11 +67,8 @@ if (!jQuery.support.cors && window.XDomainRequest) {
               complete(status.code, status.message, responses, allResponseHeaders);
             }
           };
-          
           //set an empty handler for 'onprogress' so requests don't get aborted
-          xdr.onprogress = function () {
-          };
-
+          xdr.onprogress = function(){};
           xdr.onerror = function(){
             complete(500, 'error', {
               text: xdr.responseText
