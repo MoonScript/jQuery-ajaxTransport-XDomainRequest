@@ -40,7 +40,7 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
             try {
               if ((userType === 'json') || ((userType !== 'text') && jsonRegEx.test(xdr.contentType))) {
                 try {
-                  responses.json = $.parseJSON(xdr.responseText);
+                  responses.json = jQuery.parseJSON(xdr.responseText);
                 } catch(e) {
                   status.code = 500;
                   status.message = 'parseerror';
@@ -67,14 +67,17 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
               complete(status.code, status.message, responses, allResponseHeaders);
             }
           };
-          //set an empty handler for 'onprogress' so requests don't get aborted
+          // set an empty handler for 'onprogress' so requests don't get aborted
           xdr.onprogress = function(){};
           xdr.onerror = function(){
             complete(500, 'error', {
               text: xdr.responseText
             });
           };
-          var postData = (userOptions.data && $.param(userOptions.data)) || '';
+          var postData = '';
+          if (userOptions.data) {
+            postData = (jQuery.type(userOptions.data) === 'string') ? userOptions.data : jQuery.param(userOptions.data);
+          }
           xdr.open(options.type, options.url);
           xdr.send(postData);
         },
