@@ -41,6 +41,10 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
               if ((userType === 'json') || ((userType !== 'text') && jsonRegEx.test(xdr.contentType))) {
                 try {
                   responses.json = jQuery.parseJSON(xdr.responseText);
+                  if(responses.json.status_code && responses.json.status_code >= 400){
+                    status.code = responses.json.status_code;
+                    status.message = responses.json.status;
+                  }
                 } catch(e) {
                   status.code = 500;
                   status.message = 'parseerror';
@@ -78,6 +82,8 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
           if (userOptions.data) {
             postData = (jQuery.type(userOptions.data) === 'string') ? userOptions.data : jQuery.param(userOptions.data);
           }
+          // add in an extra param to force the response type to success for proper error handling
+          postData += '&xdr_force_response_status=200';
           xdr.open(options.type, options.url);
           xdr.send(postData);
         },
