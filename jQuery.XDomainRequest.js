@@ -32,11 +32,6 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
             var responses = {
               text: xdr.responseText
             };
-            /*
-            if (userType === 'html') {
-              responses.html = xdr.responseText;
-            } else
-            */
             try {
               if ((userType === 'json') || ((userType !== 'text') && jsonRegEx.test(xdr.contentType))) {
                 try {
@@ -60,6 +55,8 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
                   throw 'Invalid XML: ' + xdr.responseText;
                 }
                 responses.xml = doc;
+              } else if (userType === 'html') {
+                responses.html = xdr.responseText;
               }
             } catch(parseMessage) {
               throw parseMessage;
