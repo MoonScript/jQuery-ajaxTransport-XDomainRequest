@@ -5,6 +5,7 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
   var httpRegEx = /^https?:\/\//i;
   var getOrPostRegEx = /^get|post$/i;
   var sameSchemeRegEx = new RegExp('^'+location.protocol, 'i');
+  var htmlRegEx = /text\/html/i;
   var jsonRegEx = /\/json/i;
   var xmlRegEx = /\/xml/i;
   
@@ -32,13 +33,10 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
             var responses = {
               text: xdr.responseText
             };
-            /*
-            if (userType === 'html') {
-              responses.html = xdr.responseText;
-            } else
-            */
             try {
-              if ((userType === 'json') || ((userType !== 'text') && jsonRegEx.test(xdr.contentType))) {
+              if (userType === 'html' || htmlRegEx.test(xdr.contentType)) {
+                responses.html = xdr.responseText;
+              } else if (userType === 'json' || (userType !== 'text' && jsonRegEx.test(xdr.contentType))) {
                 try {
                   responses.json = jQuery.parseJSON(xdr.responseText);
                 } catch(e) {
@@ -46,7 +44,7 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
                   status.message = 'parseerror';
                   //throw 'Invalid JSON: ' + xdr.responseText;
                 }
-              } else if ((userType === 'xml') || ((userType !== 'text') && xmlRegEx.test(xdr.contentType))) {
+              } else if (userType === 'xml' || (userType !== 'text' && xmlRegEx.test(xdr.contentType))) {
                 var doc = new ActiveXObject('Microsoft.XMLDOM');
                 doc.async = false;
                 try {
