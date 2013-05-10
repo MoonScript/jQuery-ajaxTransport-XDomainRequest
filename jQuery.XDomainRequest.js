@@ -58,6 +58,8 @@ if (!jQuery.support.cors && jQuery.ajaxTransport && window.XDomainRequest) {
                   throw 'Invalid XML: ' + xdr.responseText;
                 }
                 responses.xml = doc;
+              } else if (userType === 'html') {
+                responses.html = xdr.responseText;
               }
             } catch(parseMessage) {
               throw parseMessage;
