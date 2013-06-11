@@ -11,7 +11,7 @@ In order to use XDomainRequest in Internet Explorer, the request must be:
 - Always asynchronous
 
 Working example here:
-http://jsfiddle.net/MoonScript/Q7bVG/
+http://jsfiddle.net/MoonScript/Q7bVG/show/
 
 ## Instructions
 
