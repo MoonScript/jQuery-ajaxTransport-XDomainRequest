@@ -25,3 +25,7 @@ $.ajax({
   console.log(data.name.first);
 });
 ```
+
+## CDNJS
+
+This script has been [requested](https://github.com/cdnjs/cdnjs/pull/1393) to be hosted by [CDNJS](http://cdnjs.com).
