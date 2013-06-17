@@ -28,4 +28,5 @@ $.ajax({
 
 ## CDNJS
 
-This script has been [requested](https://github.com/cdnjs/cdnjs/pull/1393) to be hosted by [CDNJS](http://cdnjs.com).
+This script is hosted by [CDNJS](http://cdnjs.com):
+http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.0/jquery.xdomainrequest.min.js
