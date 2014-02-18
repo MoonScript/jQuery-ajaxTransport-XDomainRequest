@@ -1,7 +1,15 @@
 // jQuery.XDomainRequest.js
 // Author: Jason Moon - @JSONMOON
 // IE8+
-(function($){
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as anonymous module.
+        define(['jquery'], factory);
+    } else {
+        // Browser globals.
+        factory(jQuery);
+    }
+}(function ($) {
 
 if (!$.support.cors && $.ajaxTransport && window.XDomainRequest) {
   var httpRegEx = /^https?:\/\//i;
@@ -91,4 +99,4 @@ if (!$.support.cors && $.ajaxTransport && window.XDomainRequest) {
   });
 }
 
-})(jQuery);
+}));
