@@ -59,6 +59,9 @@ if (!$.support.cors && $.ajaxTransport && window.XDomainRequest) {
                   status.message = 'parseerror';
                   throw 'Invalid XML: ' + xdr.responseText;
                 }
+                if (doc.firstChild.nodeTypeString === 'processinginstruction') {
+                  doc.removeChild(doc.firstChild);
+                }
                 responses.xml = doc;
               }
             } catch(parseMessage) {
