@@ -18,11 +18,20 @@ http://jsfiddle.net/MoonScript/Q7bVG/show/
 With at least jQuery version 1.5, just include the [jquery.xdomainrequest.min.js](http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js) script into your page, then make your AJAX call like you normally would:
 
 ```JavaScript
-$.ajax({
-  url: 'http://jsonmoon.jsapp.us/',
-  dataType: 'json'
-}).done(function(data){
+// GET
+$.getJSON('http://jsonmoon.jsapp.us/').done(function(data) {
   console.log(data.name.first);
+});
+
+// POST
+$.ajax({
+  url: 'http://frozen-woodland-5503.herokuapp.com/cors.json',
+  data: 'this is data being posted to the server',
+  contentType: 'text/plain',
+  type: 'POST',
+  dataType: 'json'
+}).done(function(data) {
+  console.log(data.name.last);
 });
 ```
 
