@@ -15,7 +15,7 @@ http://jsfiddle.net/MoonScript/Q7bVG/show/
 
 ## Instructions
 
-With at least jQuery version 1.5, just include the [jquery.xdomainrequest.min.js](http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js) script into your page, then make your AJAX call like you normally would:
+With at least jQuery version 1.5, just include the [jquery.xdomainrequest.min.js](http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.2/jquery.xdomainrequest.min.js) script into your page, then make your AJAX call like you normally would:
 
 ```JavaScript
 // GET
@@ -39,4 +39,8 @@ $.ajax({
 
 This script is hosted by [CDNJS](http://cdnjs.com):
 
-http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js
+http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.2/jquery.xdomainrequest.min.js
+
+## Change log
+
+- **1.0.2** - added RequireJS AMD module support
