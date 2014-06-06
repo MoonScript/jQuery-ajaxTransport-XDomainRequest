@@ -44,3 +44,4 @@ http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.2/
 ## Change log
 
 - **1.0.2** - added RequireJS AMD module support
+- **1.0.3** - added CommonJS and Bower support

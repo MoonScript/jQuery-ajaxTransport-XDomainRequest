@@ -1,5 +1,5 @@
 /*!
- * jQuery-ajaxTransport-XDomainRequest - v1.0.2 - 2014-05-02
+ * jQuery-ajaxTransport-XDomainRequest - v1.0.3 - 2014-06-06
  * https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest
  * Copyright (c) 2014 Jason Moon (@JSONMOON)
  * Licensed MIT (/blob/master/LICENSE.txt)
