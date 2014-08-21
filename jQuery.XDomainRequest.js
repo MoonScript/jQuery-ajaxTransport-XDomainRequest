@@ -19,7 +19,7 @@
 
 // Only continue if we're on IE8/IE9 with jQuery 1.5+ (contains the ajaxTransport function)
 if ($.support.cors || !$.ajaxTransport || !window.XDomainRequest) {
-  return;
+  return $;
 }
 
 var httpRegEx = /^https?:\/\//i;
@@ -113,5 +113,7 @@ $.ajaxTransport('* text html xml json', function(options, userOptions, jqXHR) {
     }
   };
 });
+
+return $;
 
 }));
