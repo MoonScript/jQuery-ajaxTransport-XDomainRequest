@@ -1,11 +1,10 @@
 {
   "name": "jQuery-ajaxTransport-XDomainRequest",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "jquery.xdomainrequest.min.js",
   "description": "Implements automatic Cross Origin Resource Sharing support using the XDomainRequest object for IE8 and IE9 when using the ajax function in jQuery 1.5+.",
   "license": "MIT",
   "ignore": [
-    "jQuery.XDomainRequest.js",
     "LICENSE.txt",
     "README.md"
   ],
