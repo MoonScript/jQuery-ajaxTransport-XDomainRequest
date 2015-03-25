@@ -23,7 +23,7 @@ if ($.support.cors || !$.ajaxTransport || !window.XDomainRequest) {
 }
 
 var httpRegEx = /^(https?:)?\/\//i;
-var getOrPostRegEx = /^get|post$/i;
+var getOrPostRegEx = new RegExp('^get|post$', 'i');
 var sameSchemeRegEx = new RegExp('^(\/\/|' + location.protocol + ')', 'i');
 
 // ajaxTransport exists in jQuery 1.5+
