@@ -13,6 +13,12 @@ In order to use `XDomainRequest` in Internet Explorer, the request must be:
 Working example here:
 http://jsfiddle.net/MoonScript/Q7bVG/show/
 
+
+## Bower installation
+
+`bower install jQuery-ajaxTransport-XDomainRequest --save`
+
+
 ## Instructions
 
 With at least jQuery version 1.5, just include the [jquery.xdomainrequest.min.js](http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js) script into your page, then make your AJAX call like you normally would:
