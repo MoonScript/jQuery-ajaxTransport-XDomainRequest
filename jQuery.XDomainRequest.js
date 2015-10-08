@@ -73,6 +73,7 @@ $.ajaxTransport('* text html xml json', function(options, userOptions, jqXHR) {
           } else if (userType === 'xml' || (userType !== 'text' && /\/xml/i.test(xdr.contentType))) {
             var doc = new ActiveXObject('Microsoft.XMLDOM');
             doc.async = false;
+            $.extend(doc, userOptions.xmlDomOptions);
             try {
               doc.loadXML(xdr.responseText);
             } catch(e) {
