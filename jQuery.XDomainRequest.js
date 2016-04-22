@@ -34,6 +34,12 @@ $.ajaxTransport('* text html xml json', function(options, userOptions, jqXHR) {
     return;
   }
 
+  // XDomainRequest does not send any headers, so we are sending cookie data in payload when credentials are requested
+  if(options.type === 'POST' && options.sendCookieInPayload && options.xhrFields.withCredentials) {
+    userOptions.data = userOptions.data || {};
+    userOptions.data.cookie = document.cookie;
+  }
+  
   var xdr = null;
 
   return {
